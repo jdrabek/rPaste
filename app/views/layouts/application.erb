@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">  
+  <head>
+    <style type="text/css">
+      body {background-color:black;margin:0;}
+      .blackboard {font:12px "Consolas";}
+      #logo{float:left;padding:0;margin:0;}
+      #logo,#nav,#login {color:white;font:13px Arial;display:inline;}
+      #nav img {vertical-align:middle;padding:7px;}
+      #nav a,img {border:0;text-decoration:none;color:#fc0;}
+      #header{background: url(/images/carbon.png) repeat-x;}
+      
+      #login {float:right;margin-top:10px;width:330px;font-size:smaller;}
+      #login form,img,input {display:inline;vertical-align:middle;}
+      #login input {border:0;background: url(/images/input_gr_s.png) repeat-x;}
+      #registernow {display:inline;width:80px; }
+      
+    </style>
+
+
+    <%= stylesheet_link_tag :harsh %>
+    <title>asd</title>
+  </head>
+  <body>
+  <div id="header">
+    <div id="logo"><img src="/images/logo.png" alt=""/></div>
+    <div id="nav">
+      <a href="/"><img src="/images/add.png" alt="x"/> Dodaj</a>
+      <a href="/search"><img src="/images/search.png" alt="x"/>Wyszukaj</a>
+      <a href="/stats"><img src="/images/stats.png" alt="x"/>Statystyki</a>
+      <a href="/commiter"><img src="/images/commiter.png" alt="x"/>Wklejarka</a>
+    </div>
+    <div id="login">
+          <% form_for :user, :url => { :action => "login" } do |f| %>
+            Login: <%= f.text_field :login, :size=>10 %> Hasło: <%= f.password_field :password, :size=>10 %> <%= image_submit_tag "/images/login_submit.png" %>
+          <% end %>
+          <img src="/images/register.png"/>
+    </div>
+  </div>
+    <%= yield %>
+  </body>
+</html>
